@@ -44,15 +44,95 @@ function App() {
           </p>
         </section>
 
-        <section id="departments" className="content">
-          <h2>Our Departments</h2>
-          <p>Explore our teams, responsibilities and goals.</p>
-        </section>
+        
+<section id="departments" className="content departments-section">
+  <h2>Our Departments</h2>
+  <p className="section-description">
+    Explore our teams, responsibilities and goals.
+  </p>
 
-        <section id="courses" className="content">
-          <h2>Learning Resources</h2>
-          <p>Access courses, recordings and educational materials.</p>
-        </section>
+  <div className="department-grid">
+    <div className="department-card">
+      <div className="department-icon">📢</div>
+      <h3>Marketing</h3>
+      <p>
+        Promote YSSE initiatives, build awareness and connect with communities.
+      </p>
+    </div>
+
+    <div className="department-card">
+      <div className="department-icon">👥</div>
+      <h3>Human Resources</h3>
+      <p>
+        Support team members, recruitment and a collaborative work culture.
+      </p>
+    </div>
+
+    <div className="department-card">
+      <div className="department-icon">💻</div>
+      <h3>IT & Technology</h3>
+      <p>
+        Develop digital solutions and maintain technology resources.
+      </p>
+    </div>
+
+    <div className="department-card">
+      <div className="department-icon">🎓</div>
+      <h3>Research & Development</h3>
+      <p>
+        Explore ideas, support innovation and develop new initiatives.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+        
+<section id="courses" className="content courses-section">
+  <h2>Learning & Development</h2>
+  <p className="section-description">
+    Explore learning opportunities, recorded sessions and useful resources.
+  </p>
+
+  <div className="course-grid">
+    <div className="course-card">
+      <div className="course-icon">🎓</div>
+      <span className="course-label">LEARNING</span>
+      <h3>Professional Development</h3>
+      <p>
+        Build communication, teamwork and leadership skills for your career.
+      </p>
+      <a href="#internship" className="course-link">
+        Explore Opportunities →
+      </a>
+    </div>
+
+    <div className="course-card">
+      <div className="course-icon">▶️</div>
+      <span className="course-label">RECORDINGS</span>
+      <h3>Recorded Sessions</h3>
+      <p>
+        Revisit workshops, training sessions and educational discussions.
+      </p>
+      <a href="#internship" className="course-link">
+        Explore Opportunities →
+      </a>
+    </div>
+
+    <div className="course-card">
+      <div className="course-icon">📚</div>
+      <span className="course-label">RESOURCES</span>
+      <h3>Learning Materials</h3>
+      <p>
+        Discover guides, documents and resources for continuous learning.
+      </p>
+      <a href="#about" className="course-link">
+        Learn About YSSE →
+      </a>
+    </div>
+  </div>
+</section>
+
 
         <section id="internship" className="content">
           <h2>Internship Opportunities</h2>
