@@ -1,7 +1,25 @@
 
-import './App.css'
+
+import { useState } from "react";
+
+import "./App.css";
+
 
 function App() {
+  
+const [formMessage, setFormMessage] = useState("");
+
+const handleApplicationSubmit = (
+  event: React.FormEvent<HTMLFormElement>
+) => {
+  event.preventDefault();
+  setFormMessage(
+    "Thank you! Your application form has been submitted successfully."
+  );
+};
+
+ 
+
   return (
     <div>
       <header>
@@ -141,12 +159,142 @@ function App() {
           </p>
         </section>
       </main>
+       
+     
+     // Alumni Interns Section
+<section id="alumni-interns" className="content alumni-section">
+  <span className="internship-label">OUR COMMUNITY</span>
+
+  <h2>Meet Our Alumni Interns</h2>
+
+  <p className="section-description">
+    Meet the people who have grown, learned and contributed
+    through their internship journey with YSSE.
+  </p>
+
+  <div className="alumni-grid">
+    <div className="alumni-card">
+      <div className="alumni-avatar">👩‍💼</div>
+      <h3>Intern Name 1</h3>
+      <p className="alumni-department">Marketing Department</p>
+      <p>
+        Contributed to communication, campaign planning
+        and community engagement.
+      </p>
+    </div>
+
+    <div className="alumni-card">
+      <div className="alumni-avatar">👨‍💻</div>
+      <h3>Intern Name 2</h3>
+      <p className="alumni-department">IT & Technology</p>
+      <p>
+        Gained practical experience in digital tools
+        and technology projects.
+      </p>
+    </div>
+
+    <div className="alumni-card">
+      <div className="alumni-avatar">👩‍🎓</div>
+      <h3>Intern Name 3</h3>
+      <p className="alumni-department">Human Resources</p>
+      <p>
+        Supported team coordination, recruitment
+        activities and member engagement.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<section id="application-form" className="content application-section">
+  <span className="internship-label">JOIN OUR TEAM</span>
+
+  <h2>YSSE Internship Application</h2>
+
+  <p className="section-description">
+    Take the first step toward learning, teamwork and social impact.
+    Complete the form below to express your interest.
+  </p>
+
+  <form
+  className="application-form"
+  onSubmit={handleApplicationSubmit}
+>
+    <div className="form-group">
+      <label htmlFor="applicant-name">Full Name</label>
+      <input
+        type="text"
+        id="applicant-name"
+        name="name"
+        placeholder="Enter your full name"
+        required
+      />
+    </div>
+
+    <div className="form-group">
+      <label htmlFor="applicant-email">Email Address</label>
+      <input
+        type="email"
+        id="applicant-email"
+        name="email"
+        placeholder="Enter your email address"
+        required
+      />
+    </div>
+
+    <div className="form-group">
+      <label htmlFor="applicant-department">Preferred Department</label>
+      <select
+        id="applicant-department"
+        name="department"
+        required
+        defaultValue=""
+      >
+        <option value="" disabled>
+          Select a department
+        </option>
+        <option value="Marketing">Marketing</option>
+        <option value="Human Resources">Human Resources</option>
+        <option value="IT & Technology">IT & Technology</option>
+        <option value="Research & Development">
+          Research & Development
+        </option>
+      </select>
+    </div>
+
+    <div className="form-group">
+      <label htmlFor="applicant-reason">
+        Why do you want to join YSSE?
+      </label>
+      <textarea
+        id="applicant-reason"
+        name="reason"
+        rows={5}
+        placeholder="Tell us about your interests and goals"
+        required
+      />
+    </div>
+
+    <button type="submit" className="cta">
+      Submit Application
+    </button>
+    
+{formMessage && (
+  <p role="status" className="form-message">
+    {formMessage}
+  </p>
+)}
+
+  </form>
+</section>
+
 
       <footer>
         <p>Tanjila Akter © 2026 YSSE Main Portal</p>
       </footer>
     </div>
-  )
+  );
 }
 
-export default App
+
+export default App;
