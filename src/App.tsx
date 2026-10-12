@@ -62,6 +62,8 @@ const handleApplicationSubmit = (
           </p>
         </section>
 
+     
+
         
 <section id="departments" className="content departments-section">
   <h2>Our Departments</h2>
