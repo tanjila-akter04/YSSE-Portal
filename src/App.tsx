@@ -8,15 +8,32 @@ import "./App.css";
 function App() {
   
 const [formMessage, setFormMessage] = useState("");
+const [isSubmitting, setIsSubmitting] = useState(false);
 
-const handleApplicationSubmit = (
+
+const handleApplicationSubmit = async (
   event: React.FormEvent<HTMLFormElement>
 ) => {
   event.preventDefault();
-  setFormMessage(
-    "Thank you! Your application form has been submitted successfully."
-  );
+
+  
+  setIsSubmitting(true);
+  setFormMessage("");
+  try {
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+
+    setFormMessage(
+      "Thank you! Your application form has been submitted successfully."
+    );
+
+    event.currentTarget.reset();
+  } catch {
+    setFormMessage("Something went wrong. Please try again.");
+  } finally {
+    setIsSubmitting(false);
+  }
 };
+
 
  
 
@@ -25,16 +42,22 @@ const handleApplicationSubmit = (
       <header>
         <h2>YSSE</h2>
 
-        <nav>
-          <a href="#home">Home</a>
-          <a href="#about">About Us</a>
-          <a href="#departments">Departments</a>
-          <a href="#courses">Courses</a>
-          <a href="#internship">Internship</a>
-        </nav>
+        
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#about">About Us</a>
+  <a href="#departments">Departments</a>
+  <a href="#courses">Courses</a>
+  <a href="#internship">Internship</a>
+  <a href="#notice-board">Notice Board</a>
+  <a href="#login">Login</a>
+</nav>
+
+
       </header>
 
-      <main>
+    <main>
         <section id="home" className="hero">
           <p className="tagline">Youth School for Social Entrepreneurs -YSSE</p>
 
@@ -154,16 +177,102 @@ const handleApplicationSubmit = (
 </section>
 
 
-        <section id="internship" className="content">
-          <h2>Internship Opportunities</h2>
-          <p>
-            Discover the recruitment process and application opportunities.
-          </p>
-        </section>
-      </main>
+       
+<section id="internship" className="content recruitment-section">
+  <span className="internship-label">BUILD YOUR FUTURE</span>
+
+  <h2>Internship Opportunities</h2>
+
+  <p className="section-description">
+    Learn new skills, work with a team and create a positive social impact.
+  </p>
+
+  <div className="recruitment-grid">
+    <article className="recruitment-card">
+      <span className="recruitment-number">01</span>
+      <h3>Apply Online</h3>
+      <p>
+        Complete the internship application form with your details
+        and preferred department.
+      </p>
+    </article>
+
+    <article className="recruitment-card">
+      <span className="recruitment-number">02</span>
+      <h3>Application Review</h3>
+      <p>
+        The recruitment team reviews your application and relevant interests.
+      </p>
+    </article>
+
+    <article className="recruitment-card">
+      <span className="recruitment-number">03</span>
+      <h3>Interview</h3>
+      <p>
+        Shortlisted applicants may be invited for an interview or assessment.
+      </p>
+    </article>
+
+    <article className="recruitment-card">
+      <span className="recruitment-number">04</span>
+      <h3>Start Your Journey</h3>
+      <p>
+        Selected interns join their department and begin learning through
+        practical tasks and teamwork.
+      </p>
+    </article>
+  </div>
+
+  <a href="#application-form" className="cta">
+    Apply for Internship
+  </a>
+</section>
+</main>
+
+
+   /* Notice Board Section */ 
+<section id="notice-board" className="content notice-section">
+  <span className="internship-label">LATEST UPDATES</span>
+
+  <h2>YSSE Notice Board</h2>
+
+  <p className="section-description">
+    Stay updated with the latest announcements, events and opportunities.
+  </p>
+
+  <div className="notice-list">
+    <article className="notice-card">
+      <span className="notice-category">Internship</span>
+      <h3>Internship Opportunities</h3>
+      <p>
+        Explore internship opportunities and learn about the application process.
+      </p>
+      <span className="notice-date">Check application details</span>
+    </article>
+
+    <article className="notice-card">
+      <span className="notice-category">Events</span>
+      <h3>Upcoming Events & Activities</h3>
+      <p>
+        Stay informed about upcoming events, networking sessions and community activities.
+      </p>
+      <span className="notice-date">Updates coming soon</span>
+    </article>
+
+    <article className="notice-card">
+      <span className="notice-category">Training</span>
+      <h3>Training & Workshops</h3>
+      <p>
+        Look out for learning opportunities, workshops and professional development sessions.
+      </p>
+      <span className="notice-date">Updates coming soon</span>
+    </article>
+  </div>
+</section>
+
        
      
-     // Alumni Interns Section
+     {/* Alumni Interns Section */}
 <section id="alumni-interns" className="content alumni-section">
   <span className="internship-label">OUR COMMUNITY</span>
 
@@ -277,9 +386,17 @@ const handleApplicationSubmit = (
       />
     </div>
 
-    <button type="submit" className="cta">
-      Submit Application
-    </button>
+   
+   
+
+<button
+  type="submit"
+  className="cta"
+  disabled={isSubmitting}
+>
+  {isSubmitting ? "Submitting..." : "Submit Application"}
+</button>
+
     
 {formMessage && (
   <p role="status" className="form-message">
