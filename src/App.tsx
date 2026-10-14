@@ -5,6 +5,32 @@ import { useState } from "react";
 import "./App.css";
 
 
+const notices = [
+  {
+    category: "Internship",
+    title: "Internship Opportunities",
+    description:
+      "Explore internship opportunities and learn about the application process.",
+    date: "Check application details",
+  },
+  {
+    category: "Events",
+    title: "Upcoming Events & Activities",
+    description:
+      "Stay informed about upcoming events, networking sessions and community activities.",
+    date: "Updates coming soon",
+  },
+  {
+    category: "Training",
+    title: "Training & Workshops",
+    description:
+      "Look out for learning opportunities, workshops and professional development sessions.",
+    date: "Updates coming soon",
+  },
+];
+
+
+
 function App() {
   
 const [formMessage, setFormMessage] = useState("");
@@ -230,7 +256,7 @@ const handleApplicationSubmit = async (
 </main>
 
 
-   /* Notice Board Section */ 
+   
 <section id="notice-board" className="content notice-section">
   <span className="internship-label">LATEST UPDATES</span>
 
