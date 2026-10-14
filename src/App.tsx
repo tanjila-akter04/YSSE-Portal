@@ -266,34 +266,25 @@ const handleApplicationSubmit = async (
     Stay updated with the latest announcements, events and opportunities.
   </p>
 
-  <div className="notice-list">
-    <article className="notice-card">
-      <span className="notice-category">Internship</span>
-      <h3>Internship Opportunities</h3>
-      <p>
-        Explore internship opportunities and learn about the application process.
-      </p>
-      <span className="notice-date">Check application details</span>
-    </article>
+   
+<div className="notice-list">
+  {notices.map((notice, index) => (
+    <article className="notice-card" key={index}>
+      <span className="notice-category">
+        {notice.category}
+      </span>
 
-    <article className="notice-card">
-      <span className="notice-category">Events</span>
-      <h3>Upcoming Events & Activities</h3>
-      <p>
-        Stay informed about upcoming events, networking sessions and community activities.
-      </p>
-      <span className="notice-date">Updates coming soon</span>
-    </article>
+      <h3>{notice.title}</h3>
 
-    <article className="notice-card">
-      <span className="notice-category">Training</span>
-      <h3>Training & Workshops</h3>
-      <p>
-        Look out for learning opportunities, workshops and professional development sessions.
-      </p>
-      <span className="notice-date">Updates coming soon</span>
+      <p>{notice.description}</p>
+
+      <span className="notice-date">
+        {notice.date}
+      </span>
     </article>
-  </div>
+  ))}
+</div>
+
 </section>
 
        
